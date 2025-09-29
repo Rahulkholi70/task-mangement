@@ -1,6 +1,6 @@
 # Task Management Frontend
 ## Features
-
+ DEPLOYMENT - https://task-mangement-rose.vercel.app/
 - View and manage task boards
 - Create, update, and delete tasks
 - Filter tasks by status
