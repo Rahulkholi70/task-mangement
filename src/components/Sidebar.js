@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
+import API_BASE from '../lib/api';
 
 const Sidebar = () => {
   const [boards, setBoards] = useState([]);
@@ -16,7 +17,7 @@ const Sidebar = () => {
 
   const fetchBoards = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/boards');
+      const response = await axios.get(`${API_BASE}/api/boards`);
       setBoards(response.data);
     } catch (error) {
       console.error('Error fetching boards:', error);
@@ -25,7 +26,7 @@ const Sidebar = () => {
 
   const fetchCompletedTasks = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/boards/tasks?status=done');
+      const response = await axios.get(`${API_BASE}/api/boards/tasks?status=done`);
       setCompletedTasks(response.data);
     } catch (error) {
       console.error('Error fetching completed tasks:', error);

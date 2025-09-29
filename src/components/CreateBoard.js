@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
+import API_BASE from '../lib/api';
 
 const CreateBoard = ({ onBoardCreated }) => {
   const [name, setName] = useState('');
@@ -9,7 +10,7 @@ const CreateBoard = ({ onBoardCreated }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/boards', { name, description });
+      await axios.post(`${API_BASE}/api/boards`, { name, description });
       setName('');
       setDescription('');
       setIsOpen(false);

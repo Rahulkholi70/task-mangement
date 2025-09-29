@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import axios from 'axios';
+import API_BASE from '../lib/api';
 
 const TaskForm = ({ boardId, task = null, onClose, onSave }) => {
   const [title, setTitle] = useState(task?.title || '');
@@ -28,9 +29,9 @@ const TaskForm = ({ boardId, task = null, onClose, onSave }) => {
 
     try {
       if (task) {
-        await axios.put(`http://localhost:5000/api/boards/${boardId}/tasks/${task._id}`, taskData);
+        await axios.put(`${API_BASE}/api/boards/${boardId}/tasks/${task._id}`, taskData);
       } else {
-        await axios.post(`http://localhost:5000/api/boards/${boardId}/tasks`, taskData);
+        await axios.post(`${API_BASE}/api/boards/${boardId}/tasks`, taskData);
       }
       onSave();
       onClose();

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import API_BASE from '../lib/api';
 import TaskForm from './TaskForm';
 
 const BoardView = ({ boardId }) => {
@@ -21,7 +22,7 @@ const BoardView = ({ boardId }) => {
 
   const fetchTasks = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/boards/${boardId}/tasks`);
+      const response = await axios.get(`${API_BASE}/api/boards/${boardId}/tasks`);
       setTasks(response.data);
       setLoading(false);
     } catch (error) {
@@ -36,7 +37,7 @@ const BoardView = ({ boardId }) => {
 
   const updateTaskStatus = async (taskId, newStatus) => {
     try {
-      await axios.put(`http://localhost:5000/api/boards/${boardId}/tasks/${taskId}`, { status: newStatus });
+      await axios.put(`${API_BASE}/api/boards/${boardId}/tasks/${taskId}`, { status: newStatus });
       handleSaveTask();
     } catch (error) {
       console.error('Error updating task status:', error);
@@ -45,7 +46,7 @@ const BoardView = ({ boardId }) => {
 
   const deleteTask = async (taskId) => {
     try {
-      await axios.delete(`http://localhost:5000/api/boards/${boardId}/tasks/${taskId}`);
+      await axios.delete(`${API_BASE}/api/boards/${boardId}/tasks/${taskId}`);
       handleSaveTask();
     } catch (error) {
       console.error('Error deleting task:', error);
