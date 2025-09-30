@@ -91,7 +91,7 @@ const BoardView = ({ boardId }) => {
               <div className="flex justify-between items-center text-xs mb-2">
                 <span className={`font-medium ${getPriorityColor(task.priority)}`}>Priority: {task.priority}</span>
                 {task.assignedTo && <span>👤 {task.assignedTo}</span>}
-                {task.dueDate && <span>📅 {task.dueDate}</span>}
+                {task.dueDate && <span>📅 {new Date(task.dueDate).toDateString()}</span>}
               </div>
               <div className="flex space-x-2">
                 <button
@@ -127,7 +127,7 @@ const BoardView = ({ boardId }) => {
               <div className="flex justify-between items-center text-xs mb-2">
                 <span className={`font-medium ${getPriorityColor(task.priority)}`}>Priority: {task.priority}</span>
                 {task.assignedTo && <span>👤 {task.assignedTo}</span>}
-                {task.dueDate && <span>📅 {task.dueDate}</span>}
+                {task.dueDate && <span>📅 {new Date(task.dueDate).toDateString()}</span>}
               </div>
               <div className="flex space-x-2">
                 <button
@@ -169,7 +169,7 @@ const BoardView = ({ boardId }) => {
               <div className="flex justify-between items-center text-xs mb-2">
                 <span className={`font-medium ${getPriorityColor(task.priority)}`}>Priority: {task.priority}</span>
                 {task.assignedTo && <span>👤 {task.assignedTo}</span>}
-                {task.dueDate && <span>📅 {task.dueDate}</span>}
+                {task.dueDate && <span>📅 {new Date(task.dueDate).toDateString()}</span>}
               </div>
               <div className="flex space-x-2">
                 <button
